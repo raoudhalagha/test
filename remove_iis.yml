@@ -1,0 +1,10 @@
+---
+- hosts: win
+  tasks:
+  - name: install-iis
+    win_feature:
+      name: "Web-Server"
+      state: absent
+      restart: no
+      include_sub_features: yes
+      include_management_tools: no

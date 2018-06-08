@@ -1,0 +1,7 @@
+---
+- hosts: win
+  tasks:
+    - name: set content file
+      win_copy:
+        dest: "C:\\temp\\foo.txt"
+        content: "test for vsts with ansible"

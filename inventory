@@ -1,0 +1,14 @@
+[win]
+172.18.35.115
+
+[win:vars]
+
+ansible_user=ansible
+ansible_password=Ans$ble+123
+#ansible_user=test
+#ansible_password:Ayouta@1983
+ansible_connection=winrm
+remote_user=ansible
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_operation_timeout_sec=30
+ansible_winrm_read_timeout_sec=60

@@ -1,0 +1,85 @@
+---
+- name : test enable filserver role
+  hosts: win
+  gather_facts: false
+
+  tasks:
+    - name: File Server manages shared folders and enables users to access files on this computer from the network
+      win_feature:
+        name: FS-FileServer
+        state: absent
+      
+
+    - name: Defaultweb configuration
+      win_feature:
+        name: Web-Default-Doc,
+          Web-Common-Http,
+          Web-Dir-Browsing,
+          Web-Http-Errors,
+          Web-Static-Content,
+          Web-Http-Logging,
+          Web-Log-Libraries,
+          Web-Request-Monitor,
+          Web-Stat-Compression,
+          Web-Dyn-Compression,
+          Web-Filtering,
+          Web-IP-Security,
+          Web-Windows-Auth,
+          Web-Net-Ext,
+          Web-Net-Ext45,
+          Web-ASP,
+          Web-Asp-Net,
+          Web-Asp-Net45,
+          Web-CGI,
+          Web-ISAPI-Ext,
+          Web-ISAPI-Filter,
+          Web-Includes,
+          Web-WebSockets,
+          Web-Ftp-Service,
+          Web-Mgmt-Console,
+          Web-Metabase,
+          Web-Lgcy-Mgmt-Console,
+          Web-Lgcy-Scripting,
+          Web-WMI
+        state: absent
+      tags: web
+
+
+    - name: .net configuration 
+      win_feature:
+        name:  NET-Framework-Core,
+          NET-HTTP-Activation,
+          NET-Non-HTTP-Activ,
+          NET-Framework-45-Core,
+          NET-Framework-45-ASPNET,
+          NET-WCF-HTTP-Activation45,
+          NET-WCF-MSMQ-Activation45,
+          NET-WCF-Pipe-Activation45,
+          NET-WCF-TCP-Activation45,
+          NET-WCF-TCP-PortSharing45
+        state: absent
+      tags: net
+
+    - name: other tools configuration
+      win_feature:
+        name: BitLocker,
+          EnhancedStorage,
+          Server-Media-Foundation,
+          MSMQ-Server,
+          FS-SMB1,
+          Telnet-Client,
+          Windows-Defender,
+          Windows-Defender-Gui,
+          PowerShell,
+          PowerShell-V2,
+          PowerShell-ISE,
+          WAS-Process-Model,
+          WAS-NET-Environment,
+          WAS-Config-APIs,
+          WoW64-Support
+        state: absent
+      tags: support
+
+
+
+    

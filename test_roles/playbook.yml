@@ -1,0 +1,13 @@
+---
+- name: test var inclusion in roles
+  hosts: localhost
+  connection: local
+  vars_files: 
+    - vars/env1.yml
+  roles:
+    - role: test
+  tasks:
+    - debug:
+        msg: "var is defined"
+      when: var1 is defined
+
